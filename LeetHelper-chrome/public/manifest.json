@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "LeetHelper",
+  "version": "1.0.0",
+  "description": "LeetHelper is a Chrome extension designed to assist users in solving LeetCode problems. It provides hints, solutions, dry runs of code for test cases, and detailed explanations of questions to enhance your coding practice and problem-solving skills.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["activeTab", "storage"]
+}

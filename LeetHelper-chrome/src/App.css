@@ -1,0 +1,78 @@
+/* Container styling for a compact extension popup */
+.app-container {
+    width: 350px;
+    margin: 10px auto;
+    padding: 10px;
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Grid layout for the home screen cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Card styling */
+.card {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    background: #eaeaea;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Styling for the tab content view */
+.tab-content,
+.component-container {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.component-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.component-container p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Back button styling */
+.back-button {
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    background-color: #0078d7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #005fa3;
+}
