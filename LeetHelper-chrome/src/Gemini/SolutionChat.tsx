@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const apiKey = "AIzaSyAMTW9Ud0HosEVxfY11vfc33-9Qe62eXKk";
+const apiKey = "AIzaSyAWxnNC8NOu0RiVg6tjq-k1JNsuhi-oWI0"
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
@@ -23,7 +23,7 @@ const generationConfig = {
  * @returns {Promise<string>} - The detailed solution text
  */
 
-async function getLeetCodeSolution(problemName:string, programmingLanguage:string) {
+async function getLeetCodeSolution(problemName: string, programmingLanguage: string) {
     const chatSession = model.startChat({
         generationConfig,
     });

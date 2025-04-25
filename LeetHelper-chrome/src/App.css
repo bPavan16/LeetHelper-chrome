@@ -1,78 +1,118 @@
-/* Container styling for a compact extension popup */
+/* Container styling for a see-through extension popup */
 .app-container {
-    width: 350px;
+    width: 550px;
     margin: 10px auto;
-    padding: 10px;
-    background: #fff;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.65);
     font-family: 'Roboto', sans-serif;
     color: #333;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.app-container:hover {
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 /* Grid layout for the home screen cards */
 .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-/* Card styling */
+/* Card styling with see-through effect */
 .card {
-    background: #f9f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
     padding: 15px;
     text-align: center;
     cursor: pointer;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .card:hover {
-    background: #eaeaea;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card h3 {
-    margin-top: 8px;
-    font-size: 1rem;
+    margin-top: 10px;
+    font-size: 1.1rem;
     font-weight: 500;
+    color: #2d3748;
 }
 
 /* Styling for the tab content view */
 .tab-content,
 .component-container {
     padding: 15px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .component-container h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #2d3748;
 }
 
 .component-container p {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5568;
 }
 
 /* Back button styling */
 .back-button {
     margin-bottom: 15px;
-    padding: 8px 12px;
-    background-color: #0078d7;
-    color: #fff;
+    padding: 10px 16px;
+    background-color: rgba(0, 120, 215, 0.8);
+    color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s ease;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .back-button:hover {
-    background-color: #005fa3;
+    background-color: rgba(0, 95, 163, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Add these to ensure text content is readable regardless of background */
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+label,
+button {
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid rgba(66, 153, 225, 0.6);
+    outline-offset: 2px;
 }
