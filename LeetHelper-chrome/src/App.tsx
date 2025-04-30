@@ -4,6 +4,7 @@ import { FaBook, FaCheck, FaCode, FaLightbulb } from 'react-icons/fa'
 import { getLeetCodeSolution } from './Gemini/SolutionChat'
 import './styles/Solution.css'
 import './styles/ExplainQuestion.css'
+import './styles/GetHints.css'
 import './styles/DryRun.css'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { FiCopy, FiCode, FiRefreshCw, FiPlay, FiArrowLeft, FiBook } from 'react-icons/fi';
@@ -13,6 +14,7 @@ import { getLeetCodeDryRun } from './Gemini/DryRun'
 
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { getLeetCodeExplanation } from './Gemini/ExplainQuestion'
+import { getLeetCodeHints } from './Gemini/GetHints'
 
 
 
@@ -35,6 +37,15 @@ function App() {
   const [programmingLanguage, setProgrammingLanguage] = useState('C++');
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState<string | null>(null);
+
+  const [explanation, setExplanation] = useState('');
+  const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
+  const [explanationError, setExplanationError] = useState<string | null>(null);
+
+  // Hints states
+  const [hints, setHints] = useState<string | null>(null);
+  const [isLoadingHints, setIsLoadingHints] = useState(false);
+  const [hintsError, setHintsError] = useState<string | null>(null);
 
 
   useEffect(() => {
@@ -77,16 +88,13 @@ function App() {
   /* ------------------------Explain--------------------------------------- */
 
   const Explain = () => {
-    const [explanation, setExplanation] = useState('');
-    const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
-    const [explanationError, setExplanationError] = useState<string | null>(null);
 
     // Generate explanation when component mounts if question name is available
     useEffect(() => {
-      if (questionName && !explanation) {
+      if (!explanation) {
         generateExplanation();
       }
-    }, [questionName]);
+    }, []);
 
     const generateExplanation = async () => {
       if (!questionName) return;
@@ -189,9 +197,10 @@ function App() {
                     const match = /language-(\w+)/.exec(className || '');
                     return match ? (
                       <SyntaxHighlighter
-                        language={match[1]}
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-expect-error
+                        language={programmingLanguage}
+
+
+                        // @ts-expect-error Something is wrong with the types
                         style={vscDarkPlus}
                         PreTag="div"
                         {...props}
@@ -239,22 +248,17 @@ function App() {
   const Solution: React.FC = () => {
 
 
-    const languages = [
-      'C++', 'JavaScript', 'Python', 'Java', 'C'
-    ];
+    const languages = ['C++', 'JavaScript', 'Python', 'Java', 'C'];
 
-    // Generate solution on initial render if question name is available
+    // Generate solution only when the component mounts and no solution exists
     useEffect(() => {
       if (questionName && !solution) {
         generateSolution();
       }
-    }, [questionName]);
+    }, [questionName, solution]);
 
     const generateSolution = async () => {
-
-      if (solution) return; // Prevent multiple calls if solution already exists
-
-      if (!questionName) return;
+      if (!questionName || isLoading) return; // Prevent unnecessary calls
 
       try {
         setIsLoading(true);
@@ -270,6 +274,8 @@ function App() {
     };
 
     const copyToClipboard = () => {
+      if (!solution) return;
+
       navigator.clipboard.writeText(solution)
         .then(() => {
           const copyBtn = document.getElementById('solution-copy-btn');
@@ -368,12 +374,11 @@ function App() {
                   // eslint-disable-next-line @typescript-eslint/no-unused-vars
                   code({ node, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '');
-                    const isInline = false; // Define inline variable
-                    return !isInline && match ? (
+                    return match ? (
                       <SyntaxHighlighter
                         language={match[1]}
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-expect-error
+
+                        // @ts-expect-error Something is wrong with the types
                         style={vscDarkPlus}
                         PreTag="div"
                         {...props}
@@ -568,14 +573,111 @@ function App() {
 
   /* ------------------------Hints--------------------------------------- */
 
+  const Hints: React.FC = () => {
 
-  const Hints = () => (
-    <div className="component-container">
-      <button className="back-button" onClick={() => setActiveTab('home')}>Back Home</button>
-      <h2>{questionName} - Hints</h2>
-      <p>This is where hints will be provided.</p>
-    </div>
-  )
+
+    // Fetch hints when the component mounts
+    useEffect(() => {
+      if (questionName && !hints) {
+        fetchHints();
+      }
+    }, [questionName]);
+
+    const fetchHints = async () => {
+      if (!questionName && isLoadingHints) return;
+
+      try {
+        setIsLoadingHints(true);
+        setHintsError(null);
+        const result = await getLeetCodeHints(questionName);
+        setHints(result);
+      } catch (err) {
+        setHintsError('Failed to fetch hints. Please try again.');
+        console.error(err);
+      } finally {
+        setIsLoadingHints(false);
+      }
+    };
+
+    const copyHintsToClipboard = () => {
+      if (!hints) return;
+
+      navigator.clipboard.writeText(hints)
+        .then(() => {
+          const copyBtn = document.getElementById('hints-copy-btn');
+          if (copyBtn) {
+            const originalContent = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<span>✓ Copied</span>';
+            setTimeout(() => {
+              copyBtn.innerHTML = originalContent;
+            }, 2000);
+          }
+        })
+        .catch(err => console.error('Failed to copy hints:', err));
+    };
+
+    return (
+      <div className="component-container">
+        <button className="back-button" onClick={() => setActiveTab('home')}>Back Home</button>
+        <h2>{questionName} - Hints</h2>
+
+        <div className="hints-controls">
+          <button
+            className="generate-btn"
+            onClick={fetchHints}
+            disabled={isLoadingHints}
+          >
+            {isLoadingHints ? (
+              <>
+                <FiRefreshCw className="spinning" /> Generating...
+              </>
+            ) : (
+              <>
+                <FiPlay size={14} /> Generate Hints
+              </>
+            )}
+          </button>
+        </div>
+
+        {hintsError && (
+          <div className="error-container">
+            <p>{hintsError}</p>
+            <button onClick={fetchHints}>Try Again</button>
+          </div>
+        )}
+
+        {isLoadingHints ? (
+          <div className="loading-container">
+            <div className="loader"></div>
+            <p>Generating hints for {questionName}...</p>
+          </div>
+        ) : hints ? (
+          <div className="hints-content">
+            <div className="hints-toolbar">
+              <button
+                id="hints-copy-btn"
+                className="copy-btn"
+                onClick={copyHintsToClipboard}
+                title="Copy hints to clipboard"
+              >
+                <FiCopy /> Copy
+              </button>
+            </div>
+            <div className="hints-markdown">
+              <ReactMarkdown>{hints}</ReactMarkdown>
+            </div>
+          </div>
+        ) : (
+          <div className="empty-container">
+            <p>Click the button to generate hints for <strong>{questionName}</strong>.</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+
+
 
   /* ------------------------renderTabContent--------------------------------------- */
 
