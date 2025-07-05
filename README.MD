@@ -1,213 +1,245 @@
-# LeetHelper Chrome Extension
+# 🚀 LeetHelper - Your AI-Powered LeetCode Companion
 
-LeetHelper is a Chrome extension designed to assist developers in solving LeetCode problems more effectively. It provides features such as **problem explanations**, **solutions in multiple programming languages**, **code dry runs**, and **hints** to help users understand and solve problems efficiently.
+> **Transform your LeetCode journey with AI-powered insights, explanations, and solutions!**
 
----
+LeetHelper is a modern Chrome extension that supercharges your LeetCode practice with intelligent AI assistance. Whether you're a beginner learning algorithms or a seasoned coder preparing for technical interviews, LeetHelper provides instant explanations, optimized solutions, progressive hints, and detailed code analysis right in your browser.
 
-## Features
+## ✨ Features That Make You Code Better
 
-### 1. **Explain Question**
+### 🧠 **Question Explanations**
+- **Instant Understanding**: Get clear, detailed explanations of any LeetCode problem
+- **Pattern Recognition**: Learn to identify common algorithmic patterns
+- **Complexity Analysis**: Understand time and space complexity requirements
+- **Visual Breakdowns**: Complex problems made simple with step-by-step explanations
 
-- Provides a detailed explanation of the problem, breaking it down into simpler terms.
-- Includes key concepts, examples, and intuition to approach the problem.
-- **Demo Video**: Watch Here
+### 💡 **Smart Solution Generation**
+- **Multi-Language Support**: Solutions in Python, JavaScript, Java, C++, and more
+- **Multiple Approaches**: From brute force to optimized solutions
+- **Best Practices**: Clean, readable code following industry standards
+- **Performance Optimized**: Solutions focused on efficiency and clarity
 
-### 2. **Solution**
+### 🔍 **Interactive Code Analysis**
+- **Bug Detection**: Identify potential issues in your code
+- **Optimization Suggestions**: Improve performance and readability
+- **Code Quality**: Get feedback on coding style and best practices
+- **Real-time Feedback**: Analyze your solution as you write it
 
-- Generates optimized solutions in multiple programming languages (C++, Python, JavaScript, Java, and C).
-- Includes syntax-highlighted code and detailed explanations of the solution.
-- **Demo Video**: Watch Here
+### 🎯 **Progressive Hints System**
+- **Guided Learning**: Step-by-step hints that don't spoil the solution
+- **Conceptual Clues**: Understand the approach without seeing the code
+- **Difficulty Adaptive**: Hints tailored to your understanding level
+- **Learning Focused**: Designed to enhance your problem-solving skills
 
-### 3. **Code Dry Run**
+### 🔄 **Code Dry Run**
+- **Step-by-Step Execution**: Trace through your code with sample inputs
+- **Variable Tracking**: See how variables change throughout execution
+- **Logic Validation**: Understand why your code works (or doesn't)
+- **Test Case Analysis**: Detailed walkthrough of edge cases
 
-- Offers a step-by-step dry run of the code to help users understand how it works.
-- Highlights key takeaways such as time complexity, pattern recognition, and edge cases.
-- **Demo Video**: Watch Here
+### 🎨 **Beautiful Modern UI**
+- **Tailwind CSS Powered**: Clean, responsive, and intuitive design
+- **Dark/Light Theme**: Comfortable coding in any lighting
+- **Mobile Friendly**: Works perfectly on all screen sizes
+- **Accessibility First**: Built with accessibility best practices
 
-### 4. **Hints**
+## 🛠️ Installation
 
-- Provides progressively detailed hints to guide users toward solving the problem.
-- Includes general hints, specific hints, and detailed algorithmic insights.
-- **Demo Video**: Watch Here
+### Option 1: Install from Chrome Web Store (Recommended)
+*Coming soon! This extension will be available on the Chrome Web Store.*
 
----
-
-## Installation
-
-1. Clone the repository:
-
+### Option 2: Install from Source
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/bPavan16/LeetHelper-chrome.git
-   cd LeetHelper-chrome
+   git clone https://github.com/bPavan16/leethelper-chrome.git
+   cd leethelper-chrome
    ```
 
-2. Install dependencies:
-
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. Build the project:
-
+3. **Build the extension**
    ```bash
    npm run build
    ```
 
-4. Load the extension in Chrome:
+4. **Load in Chrome**
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked" and select the `build` folder
+   - The LeetHelper icon should appear in your Chrome toolbar!
 
-   - Open Chrome and navigate to `chrome://extensions/`.
-   - Enable **Developer Mode** (toggle in the top-right corner).
-   - Click **Load unpacked** and select the build folder from the project directory.
+## 🔑 Setup Your AI Assistant
 
-5. Add your **Gemini API Key**:
-   - Open the .env file in the root directory.
-   - Add your API key:
-     ```properties
-     GEMINI_API_KEY = "your-api-key-here"
-     ```
+### Get Your Gemini API Key
+1. **Visit Google AI Studio**: Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. **Create API Key**: Click "Create API Key" and follow the prompts
+3. **Copy Your Key**: Save your API key securely
 
----
+### Configure LeetHelper
+1. **Click the LeetHelper icon** in your Chrome toolbar
+2. **Enter your API key** in the secure input field
+3. **Start coding smarter!** All features are now unlocked
 
-## Usage
+> 🔒 **Privacy First**: Your API key is stored locally on your device and never shared with anyone.
 
-1. Open a LeetCode problem in your browser.
-2. Click on the LeetHelper extension icon.
-3. Use the tabs to:
-   - **Explain Question**: Get a detailed explanation of the problem.
-   - **Solution**: Generate solutions in your preferred programming language.
-   - **Code Dry Run**: Understand the step-by-step execution of the code.
-   - **Hints**: Get hints to guide you toward solving the problem.
+## 🎮 How to Use
 
----
+### 1. **Open Any LeetCode Problem**
+- Navigate to any problem on LeetCode
+- Click the LeetHelper extension icon
+- The problem name will automatically be detected
 
-## Demo Videos
+### 2. **Choose Your AI Assistant**
+- **📖 Explain Question**: Understand the problem deeply
+- **✅ Solution**: Get optimized code solutions
+- **🔍 Code Analysis**: Improve your existing code
+- **💡 Hints**: Get progressive guidance
+- **🔄 Code Dry Run**: Trace through algorithm execution
 
-- **LeetHelper Demo**: [Watch Video](./videos/demo(5).mp4)
-- **Explain Question**: [Watch Video](./videos/demo(1).mp4)
-- **Solution**: ![Watch Video](./videos/demo(2).mp4)
-- **Code Dry Run**: ![Watch Video](./videos/demo(3).mp4)
-- **Hints**: ![Watch Video](./videos/demo(4).mp4)
+### 3. **Learn and Improve**
+- Read explanations to understand patterns
+- Study generated solutions for best practices
+- Use hints to develop problem-solving skills
+- Analyze your code for continuous improvement
 
+## 🌟 Why LeetHelper?
 
----
+### **🎯 Focused Learning**
+Unlike generic AI assistants, LeetHelper is specifically designed for algorithmic problem-solving. Every feature is crafted to enhance your coding interview preparation and competitive programming skills.
 
-## Project Structure
+### **� Performance Optimized**
+- **Smart Caching**: Responses are cached locally to reduce API calls
+- **Instant Loading**: Previously viewed explanations load instantly
+- **Efficient Design**: Modern React architecture for smooth performance
 
+### **🔒 Privacy & Security**
+- **Local Storage**: All data stays on your device
+- **No Account Required**: Start using immediately
+- **Secure API Handling**: Your API key is encrypted and stored locally
+
+### **📱 Always Available**
+- **Offline Cache**: Previously loaded content works offline
+- **Cross-Platform**: Works on any device with Chrome
+- **Sync Ready**: Your settings sync across Chrome installations
+
+## 🔧 Development
+
+### Tech Stack
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+- **AI Integration**: Google Gemini API
+- **Icons**: React Icons
+
+### Project Structure
 ```
-LeetHelper-chrome/
-├── public/                 # Static assets
-├── src/                    # Source code
-│   ├── components/         # React components
-│   ├── styles/             # CSS files
-│   ├── Gemini/             # API integrations with Gemini
-│   ├── App.tsx             # Main application file
-│   └── index.tsx           # Entry point
-├── .env                    # Environment variables
-├── package.json            # Project dependencies and scripts
-└── README.md               # Project documentation
+src/
+├── Components/          # React components
+│   ├── Home.tsx         # Main dashboard
+│   ├── ExplainQuestion.tsx
+│   ├── Solution.tsx
+│   ├── CodeAnalysis.tsx
+│   ├── Hints.tsx
+│   └── DryRunComponent.tsx
+├── Gemini/             # AI integration modules
+├── hooks/              # Custom React hooks
+├── utils/              # Utility functions
+└── styles/             # CSS and styling
 ```
 
----
-
-## Contributing
-
-We welcome contributions to improve LeetHelper! Follow these steps to get started:
-
-### 1. Fork the Repository
-
-- Click the **Fork** button at the top-right corner of the repository page.
-
-### 2. Clone Your Fork
-
+### Development Commands
 ```bash
-git clone https://github.com/bPavan16/LeetHelper-chrome.git
-cd LeetHelper-chrome
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run linting
+npm run lint
+
+# Preview production build
+npm run preview
 ```
 
-### 3. Create a New Branch
+## 📈 Roadmap
 
-```bash
-git checkout -b feature/your-feature-name
-```
+### **🎯 Coming Soon**
+- [ ] **Code Explanation**: Understand existing solutions line by line
+- [ ] **Interview Mode**: Practice with timed challenges
+- [ ] **Progress Tracking**: Track your improvement over time
+- [ ] **Company-Specific Prep**: Targeted practice for FAANG companies
+- [ ] **Team Collaboration**: Share insights with study groups
 
-### 4. Make Changes
+### **🔮 Future Features**
+- [ ] **Visual Algorithm Animator**: See algorithms in action
+- [ ] **Custom Problem Sets**: Create and share problem collections
+- [ ] **Performance Analytics**: Detailed coding performance metrics
+- [ ] **Integration with IDEs**: VS Code and other editor extensions
 
-- Add your changes to the codebase.
-- Ensure your code follows the project's coding standards.
+## 🤝 Contributing
 
-### 5. Test Your Changes
+We love contributions! Here's how you can help make LeetHelper better:
 
-- Run the project locally:
-  ```bash
-  npm start
-  ```
-- Test your changes thoroughly.
+### **🐛 Found a Bug?**
+1. Check if it's already reported in [Issues](https://github.com/bPavan16/leethelper-chrome/issues)
+2. Create a detailed bug report with steps to reproduce
+3. Include screenshots if applicable
 
-### 6. Commit and Push
+### **💡 Have an Idea?**
+1. Open a feature request in [Issues](https://github.com/bPavan16/leethelper-chrome/issues)
+2. Describe the problem and proposed solution
+3. We'll discuss and prioritize together
 
-```bash
-git add .
-git commit -m "Add your commit message here"
-git push origin feature/your-feature-name
-```
+### **🔧 Want to Code?**
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and add tests
+4. Commit: `git commit -m 'Add amazing feature'`
+5. Push: `git push origin feature/amazing-feature`
+6. Open a Pull Request
 
-### 7. Create a Pull Request
+## 📄 License
 
-- Go to the original repository on GitHub.
-- Click **New Pull Request** and select your branch.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
+## 🙏 Acknowledgments
 
-## API Integration
+- **Google Gemini AI**: For providing the powerful AI capabilities
+- **LeetCode**: For creating the platform that makes us better developers
+- **React Community**: For the amazing ecosystem and tools
+- **Tailwind CSS**: For making beautiful UIs effortless
+- **All Contributors**: Thank you for making LeetHelper better!
 
-### Gemini API
+## 📞 Support
 
-LeetHelper uses the **Gemini API** to generate explanations, solutions, dry runs, and hints. Ensure you have a valid API key and add it to the .env file.
+### **Need Help?**
+- 📧 **Email**: support@leethelper.com
+- 💬 **Discord**: [Join our community](https://discord.gg/leethelper)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/bPavan16/leethelper-chrome/issues)
+- 📖 **Documentation**: [Full Documentation](https://docs.leethelper.com)
 
-### Example API Call
-
-```tsx
-const getLeetCodeSolution = async (
-  problemName: string,
-  programmingLanguage: string
-) => {
-  const prompt = `Generate a solution for the LeetCode problem "${problemName}" in ${programmingLanguage}.`;
-  const result = await geminiAPI.sendMessage(prompt);
-  return result.response.text();
-};
-```
-
----
-
-## Technologies Used
-
-- **React**: For building the user interface.
-- **TypeScript**: For type-safe development.
-- **Gemini API**: For generating explanations, solutions, and hints.
-- **React Markdown**: For rendering Markdown content.
-- **Chrome Extensions API**: For integrating with the browser.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+### **Stay Updated**
+- ⭐ **Star this repo** to show your support
+- 🔔 **Watch releases** for updates
+- 🐦 **Follow us** on social media for tips and updates
 
 ---
 
-## Contact
+<div align="center">
 
-For questions or feedback, feel free to reach out:
+### 💝 Made with ❤️ for the Developer Community
 
-- **GitHub**: [bPavan16](https://github.com/bPavan16)
+**Happy Coding! 🚀**
+
+[![GitHub stars](https://img.shields.io/github/stars/bPavan16/leethelper-chrome?style=social)](https://github.com/bPavan16/leethelper-chrome)
+[![GitHub forks](https://img.shields.io/github/forks/bPavan16/leethelper-chrome?style=social)](https://github.com/bPavan16/leethelper-chrome)
+[![GitHub watchers](https://img.shields.io/github/watchers/bPavan16/leethelper-chrome?style=social)](https://github.com/bPavan16/leethelper-chrome)
+
+</div>
 
 ---
 
-## Acknowledgments
-
-- Thanks to the **Gemini API** team for providing an excellent generative AI platform.
-- Inspired by the need to make LeetCode problems more accessible and understandable.
-
----
-
-This README provides a comprehensive guide to using, contributing to, and understanding the LeetHelper Chrome extension.
+*LeetHelper - Transform your coding journey, one problem at a time! 🎯*
