@@ -1,3 +1,83 @@
-body{
-    background:transparent;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium border border-gray-300 transition-all duration-200 hover:bg-gray-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+  
+  .btn-success {
+    @apply bg-success-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-success-700 focus:outline-none focus:ring-2 focus:ring-success-500 focus:ring-offset-2;
+  }
+  
+  .btn-warning {
+    @apply bg-warning-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-warning-700 focus:outline-none focus:ring-2 focus:ring-warning-500 focus:ring-offset-2;
+  }
+  
+  .btn-danger {
+    @apply bg-danger-600 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-danger-700 focus:outline-none focus:ring-2 focus:ring-danger-500 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600;
+  }
+  
+  .solution-markdown {
+    @apply text-gray-800;
+  }
+  
+  .solution-markdown h1,
+  .solution-markdown h2,
+  .solution-markdown h3 {
+    @apply text-gray-900 font-bold mb-3;
+  }
+  
+  .solution-markdown h1 { @apply text-2xl; }
+  .solution-markdown h2 { @apply text-xl; }
+  .solution-markdown h3 { @apply text-lg; }
+  
+  .solution-markdown p {
+    @apply mb-4 leading-relaxed;
+  }
+  
+  .solution-markdown ul,
+  .solution-markdown ol {
+    @apply mb-4 pl-6;
+  }
+  
+  .solution-markdown li {
+    @apply mb-2;
+  }
+  
+  .solution-markdown code {
+    @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  .solution-markdown pre {
+    @apply mb-4 overflow-x-auto;
+  }
+  
+  .solution-markdown blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700 mb-4;
+  }
 }

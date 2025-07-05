@@ -1,12 +1,20 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { getGeminiApiKey } from "../utils/apiKey";
 
-const apiKey = "" 
+const getApiKey = (): string => {
+  return getGeminiApiKey() || process.env.GEMINI_API_KEY || "";
+};
 
-const genAI = new GoogleGenerativeAI(apiKey);
-
-const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-pro",
-});
+const createModel = () => {
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    throw new Error("Gemini API key not found. Please configure it in the settings.");
+  }
+  const genAI = new GoogleGenerativeAI(apiKey);
+  return genAI.getGenerativeModel({
+    model: "gemini-2.5-flash",
+  });
+};
 
 const generationConfig = {
     temperature: 0.7,
@@ -23,6 +31,7 @@ const generationConfig = {
  * @returns {Promise<string>} - The hints in Markdown format
  */
 async function getLeetCodeHints(problemName: string): Promise<string> {
+    const model = createModel();
     const chatSession = model.startChat({
         generationConfig,
     });

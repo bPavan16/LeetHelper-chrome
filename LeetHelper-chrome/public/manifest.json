@@ -6,5 +6,12 @@
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": ["activeTab", "storage"]
+  "permissions": ["activeTab", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.leetcode.com/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_end"
+    }
+  ]
 }
